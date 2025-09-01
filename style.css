@@ -21,11 +21,12 @@ Header{
     font-size: 2rem;
     font-family: "AudioWide";
     font-weight: 500;
+    background: transparent;
     color: white;
     text-shadow: 1px 1px 3px white;
 }
 .headBar{
-    z-index: 2;
+    z-index: 99999;
     position: fixed;
     right: 0;
     bottom: 0;
@@ -148,7 +149,7 @@ Header{
 }
 .pageA{
     width: 100%;
-    height: 100dvh;
+    height: calc(100vh - 100px);
     background: black;
     position: relative;
 }
@@ -235,24 +236,137 @@ pink{
 .buttonBox button:active{
     background: grey;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.pageB , .pageC , .pageD , .pageE {
+.pAsection2{
+    padding-right: 20px;
+}
+.imgBox{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: transparent;
+    border: 2px dotted cyan;
+    margin-left: auto;
+    position: relative;
+    box-shadow:
+            0 0 25px cyan,
+            0 0 50px grey inset;
+    animation: shadowChange 2s ease-in-out infinite;
+}
+@keyframes shadowChange {
+    0% , 100% {
+        border: 2px dotted cyan;
+        box-shadow:
+            0 0 25px cyan,
+            0 0 50px rgb(132, 132, 132) inset;
+    }
+    50% {
+        border: 2px dashed purple;
+        box-shadow:
+            0 0 35px purple,
+            0 0 50px rgb(86, 86, 86) inset;
+    }
+}
+.imgBox:hover .vsCode{
+    filter: grayscale(0%) drop-shadow(0 0 0px white);
+}
+.vsCode{
+    position: absolute;
     width: 100%;
-    height: 100dvh;
+    right: 10px;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%) drop-shadow(0 0 20px white);
+    transition: 0.6s;
+}
+.picMe{
+    position: absolute;
+    width: 100%;
+    right: 10px;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    filter: drop-shadow(0 0 20px grey);
+}
+.pageB{
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding: 20px;
+}
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-block: 20px;
+    padding-inline: 20px;
+    background: transparent;
+}
+.projects {
+    flex: 0 1 300px;
+    min-width: 200px;
+    background: white;
+    border-radius: 20px;
+    color: white;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 2px 10px rgba(0, 255, 255, 1);
+}
+.projects:hover {
+    transform: translateY(-10px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ .pageC , .pageD , .pageE {
+    width: 100%;
+    height: 100vh;
     background: black;
     border: 5px solid white;
     color: wheat;
@@ -264,4 +378,7 @@ pink{
 @media (max-width: 550px) {
     #toggleBtn { display: flex; }
     .itemBox { display: none; }
+    .pAsection2 { padding-top: 40px; }
+    .wrapper { justify-content: space-between; padding: 40px; }
+    .projects { flex: 0 1 120px; min-width: 120px;}
 }
